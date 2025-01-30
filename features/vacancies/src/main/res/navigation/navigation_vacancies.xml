@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_vacancies"
+    app:startDestination="@+id/navigation_vacancies_search">
+
+    <fragment
+        android:id="@+id/navigation_vacancies_search"
+        android:name="com.example.effectivem2.vacancies.screens.search.SearchFragment"
+        tools:layout="@layout/fragment_vacancies_search">
+        <deepLink app:uri="effectivem2://vacancies/search" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_vacancies_favorites"
+        android:name="com.example.effectivem2.vacancies.screens.favorites.FavoritesFragment"
+        tools:layout="@layout/fragment_vacancies_favorites">
+        <deepLink app:uri="effectivem2://vacancies/favorites" />
+    </fragment>
+</navigation>

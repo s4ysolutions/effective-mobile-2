@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity
+            android:name=".VacanciesMainActivity"
+            android:exported="true"
+            android:label="@string/title_activity_vacancies">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data android:scheme="effectivem2" />
+                <data android:host="vacancies" />
+                <data android:pathPrefix="/search" />
+                <data android:pathPrefix="/favorites" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
