@@ -4,20 +4,89 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.search.SearchFragment">
+    android:padding="?attr/viewPadding"
+    tools:background="?attr/android:windowBackground"
+    tools:context=".screens.search.SearchFragment"
+    tools:theme="@style/Theme.Effectivem2">
 
-    <TextView
-        android:id="@+id/profile_text_home"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/search_layout"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="?attr/viewPaddingHalf"
+        app:layout_constraintEnd_toStartOf="@+id/settings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="0dp"
+            tools:text="1234341234324132"
+            android:hint=""
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageButton
+        android:id="@+id/settings"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/shape_image_button"
+        android:src="@drawable/settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="settings,search_layout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/offers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Vacancies search"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="?attr/viewPadding"
+        android:orientation="horizontal"
+        android:scrollbars="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/barrier1"
+        tools:itemCount="3"
+        tools:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/listitem_offer" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_padding_one_and_half"
+        android:text="@string/vacancies_for_you"
+        android:textAppearance="?attr/title_2"
+        android:textColor="?android:textColorPrimary"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/offers" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/vacancies"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_marginTop="?attr/viewPadding"
+        android:layout_marginBottom="@dimen/view_padding_two"
+        app:layout_constraintBottom_toTopOf="@id/more"
+        app:layout_constraintTop_toBottomOf="@id/t2"
+        tools:itemCount="4"
+        tools:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/listitem_vacancy" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/more"
+        style="?attr/button_1"
+        android:layout_width="match_parent"
+        android:text="@string/show_all"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck,VisualLintButtonSize"
+        tools:layout_editor_absoluteX="16dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

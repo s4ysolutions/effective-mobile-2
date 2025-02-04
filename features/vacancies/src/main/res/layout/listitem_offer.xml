@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="132dp"
+    android:layout_height="match_parent"
+    android:padding="?attr/viewPaddingHalf"
+    android:background="@drawable/shape_rounded_8"
+    android:backgroundTint="?attr/colorSurface"
+    android:layout_marginEnd="?attr/viewPaddingHalf"
+    tools:theme="@style/Theme.Effectivem2">
+
+    <ImageView
+        android:id="@+id/type"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/offer_location"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_padding_one_and_half"
+        tools:text="Вакансии рядом c вами"
+        android:textAppearance="?attr/title_4"
+        android:textColor="?android:textColorPrimary" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="поднять"
+        android:textAppearance="?attr/text_1"
+        android:textColor="?android:textColorHighlight"/>
+</LinearLayout>

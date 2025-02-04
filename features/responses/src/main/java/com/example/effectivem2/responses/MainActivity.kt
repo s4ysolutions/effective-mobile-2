@@ -16,7 +16,7 @@ class MainActivity : BaseActivity() {
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
-        setupBottomNavigationView(navView, com.example.effectivem2.views.R.id.navigation_responses)
+        setupBottomNavigationView(com.example.effectivem2.views.R.id.navigation_responses)
 
     }
 }

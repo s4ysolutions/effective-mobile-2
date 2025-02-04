@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_rounded_16"
+    android:padding="?attr/viewPadding"
+    android:backgroundTint="?attr/colorSurface"
+    android:layout_marginBottom="?attr/viewPadding"
+    tools:theme="@style/Theme.Effectivem2">
+
+    <ImageButton
+        android:id="@+id/favorite"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="0dp"
+        android:layout_margin="0dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitXY"
+        tools:src="@drawable/favorites_fill" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        app:constraint_referenced_ids="favorite" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/currently_viewing"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/text_1"
+        android:textColor="?android:textColorHighlight"
+        android:layout_marginEnd="@dimen/view_padding_half"
+        app:layout_constraintEnd_toStartOf="@+id/barrier"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Сейчас просматривает 1 человек" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/title_3"
+        android:textColor="?android:textColorPrimary"
+        android:layout_marginEnd="@dimen/view_padding_half"
+        android:layout_marginTop="@dimen/view_padding_half"
+        app:layout_constraintEnd_toStartOf="@+id/barrier"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currently_viewing"
+        tools:text="UI/UX Designer" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/salary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/title_2"
+        android:textColor="?android:textColorPrimary"
+        android:layout_marginEnd="@dimen/view_padding_half"
+        android:layout_marginTop="@dimen/view_padding_half"
+        app:layout_constraintEnd_toStartOf="@+id/barrier"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="1500-2900 Br" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/text_1"
+        android:textColor="?android:textColorPrimary"
+        android:layout_marginTop="@dimen/view_padding_half"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/salary"
+        tools:text="Минск" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/employer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/text_1"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/address"
+        tools:text="Мобирикс" />
+
+    <ImageView
+        android:id="@+id/id_employer_check"
+        android:layout_width="16dp"
+        android:layout_height="17dp"
+        app:layout_constraintBottom_toBottomOf="@id/employer"
+        app:layout_constraintStart_toEndOf="@id/employer"
+        app:layout_constraintTop_toTopOf="@id/employer"
+        android:layout_marginStart="?attr/viewPaddingQuarter"
+        tools:ignore="ContentDescription"
+        android:src="@drawable/check_circle" />
+
+    <ImageView
+        android:id="@+id/image_requirements"
+        android:layout_width="16dp"
+        android:layout_height="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/requirements"
+        app:layout_constraintBottom_toBottomOf="@id/requirements"
+        tools:ignore="ContentDescription"
+        android:src="@drawable/requirements" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/requirements"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/text_1"
+        android:textColor="?android:textColorPrimary"
+        android:layout_marginTop="@dimen/view_padding_half"
+        android:layout_marginStart="?attr/viewPaddingHalf"
+        app:layout_constraintStart_toEndOf="@+id/image_requirements"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/employer"
+        tools:text="от 1 года до 3 лет" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/text_1"
+        android:textColor="?android:textColorSecondary"
+        android:layout_marginTop="@dimen/view_padding_half"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/requirements"
+        tools:text="Опубликовано 20 февраля" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/respond"
+        style="?attr/button_2"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/view_padding"
+        android:text="Откликнуться"
+        app:layout_constraintTop_toBottomOf="@id/date"
+        app:shapeAppearanceOverlay="@style/Theme.Effectivem.Shape.Corner.50"
+        tools:ignore="TouchTargetSizeCheck"
+        tools:layout_editor_absoluteX="16dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

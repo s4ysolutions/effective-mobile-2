@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr format="reference" name="cardViewNestedStyle"/>
+    <attr format="dimension" name="viewPaddingTwo"/>
+    <attr format="dimension" name="viewPaddingOneAndHalf"/>
     <attr format="dimension" name="viewPadding"/>
     <attr format="dimension" name="viewPaddingHalf"/>
+    <attr format="dimension" name="viewPaddingQuarter"/>
     <attr format="dimension" name="cornerRadiusHalf"/>
+    <attr format="dimension" name="cornerRadius50"/>
     <attr format="reference" name="title_1"/>
     <attr format="reference" name="title_2"/>
     <attr format="reference" name="title_3"/>
@@ -12,6 +16,8 @@
     <attr format="reference" name="text_2"/>
     <attr format="reference" name="button_text_1"/>
     <attr format="reference" name="button_text_2"/>
-    <attr format="reference" name="materialButtonTextStyle"/>
+    <attr format="reference" name="button_1"/>
+    <attr format="reference" name="button_2"/>
+    <attr format="reference" name="button_3"/>
     <!--attr format="reference" name="textAppearanceTitleLarge"/-->
 </resources>

@@ -13,9 +13,32 @@
     </fragment>
 
     <fragment
+        android:id="@+id/navigation_vacancies_search_more"
+        android:name="com.example.effectivem2.vacancies.screens.search.SearchMoreFragment"
+        tools:layout="@layout/fragment_vacancies_search_more">
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_vacancy"
+        android:name="com.example.effectivem2.vacancies.screens.vacancy.VacancyFragment"
+        tools:layout="@layout/fragment_vacancy">
+        <argument
+            android:name="vacancyId"
+            app:argType="com.example.effectivem2.domain.models.Vacancy" />
+    </fragment>
+
+    <fragment
         android:id="@+id/navigation_vacancies_favorites"
         android:name="com.example.effectivem2.vacancies.screens.favorites.FavoritesFragment"
         tools:layout="@layout/fragment_vacancies_favorites">
         <deepLink app:uri="effectivem2://vacancies/favorites" />
     </fragment>
+
+    <action
+        android:id="@+id/action_search_to_search_more"
+        app:destination="@id/navigation_vacancies_search_more" />
+
+    <action
+        android:id="@+id/action_to_vacancy"
+        app:destination="@id/navigation_vacancy" />
 </navigation>

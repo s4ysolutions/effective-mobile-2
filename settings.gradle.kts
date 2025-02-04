@@ -21,8 +21,12 @@ dependencyResolutionManagement {
 
 rootProject.name = "effectivem2"
 include(":app")
-include(":shared")
-include(":features:vacancies")
-include(":features:responses")
+include(":data")
+include(":data-retrofit")
 include(":features:messages")
 include(":features:profile")
+include(":features:responses")
+include(":features:vacancies")
+include(":shared")
+include(":domain")
+include(":data-room")

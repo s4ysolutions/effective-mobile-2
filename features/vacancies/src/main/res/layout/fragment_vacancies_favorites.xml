@@ -1,24 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".screens.favorites.FavoritesFragment">
+    android:padding="?attr/viewPadding"
+    tools:background="?attr/android:windowBackground"
+    tools:context=".screens.search.SearchFragment"
+    tools:theme="@style/Theme.Effectivem2">
 
-
-    <TextView
-        android:id="@+id/profile_text_home"
-        android:layout_width="match_parent"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Vacancies favorites"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/view_padding_one_and_half"
+        android:text="@string/selected"
+        android:textAppearance="?attr/title_2"
+        android:textColor="?android:textColorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-</FrameLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/fav_qty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/text_1"
+        android:textColor="?android:textColorSecondary"
+        android:layout_marginTop="@dimen/view_padding_half"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/t2"
+        tools:text="Опубликовано 20 февраля" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/vacancies"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_marginTop="?attr/viewPaddingHalf"
+        app:layout_constraintTop_toBottomOf="@id/fav_qty"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:itemCount="4"
+        tools:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/listitem_vacancy" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

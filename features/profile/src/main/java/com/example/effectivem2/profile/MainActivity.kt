@@ -26,8 +26,7 @@ class MainActivity : BaseActivity() {
             Log.d("NavigationDebug", "Navigated to ${destination.label} with args: $arguments")
         }.also { navController.addOnDestinationChangedListener(it) }
 
-        val navView: BottomNavigationView = binding.navView
-        setupBottomNavigationView(navView, com.example.effectivem2.views.R.id.navigation_profile)
+        setupBottomNavigationView(com.example.effectivem2.views.R.id.navigation_profile)
 
     }
 }

@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="?attr/viewPadding"
+    tools:background="?attr/android:windowBackground"
+    tools:context=".screens.search.SearchFragment"
+    tools:theme="@style/Theme.Effectivem2">
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:background="@android:color/transparent"
+        android:minWidth="48dp"
+        android:paddingVertical="12dp"
+        android:scaleType="fitStart"
+        android:src="@drawable/arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/eye"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:background="@android:color/transparent"
+        android:minWidth="48dp"
+        android:paddingVertical="10dp"
+        android:scaleType="fitEnd"
+        android:src="@drawable/eye"
+        app:layout_constraintEnd_toStartOf="@id/share"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/share"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:background="@android:color/transparent"
+        android:minWidth="48dp"
+        android:paddingVertical="12dp"
+        android:scaleType="fitEnd"
+        android:src="@drawable/share"
+        app:layout_constraintEnd_toStartOf="@id/favorite"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:background="@android:color/transparent"
+        android:minWidth="48dp"
+        android:paddingVertical="12dp"
+        android:scaleType="fitEnd"
+        android:src="@drawable/favorites_fill"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="back, eye,share,favorite" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Вакансии для вас"
+        android:textAppearance="?attr/title_1"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier1" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/income"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/text_1"
+        android:layout_marginTop="?attr/viewPadding"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="Уровень дохода не указан" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/experience"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/viewPadding"
+        android:textAppearance="?attr/text_1"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/income"
+        tools:text="Требуемый опыт: от 1 года до 3 лет" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/conditions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/text_1"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/experience"
+        tools:text="Полная занятость, полный день" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_center_h"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_marginTop="?attr/viewPadding"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="?attr/viewPaddingQuarter"
+        android:layout_weight="1"
+        android:background="@drawable/shape_rounded_8"
+        android:backgroundTint="@color/dark_green"
+        android:minHeight="50dp"
+        android:padding="@dimen/view_padding_half"
+        app:layout_constraintEnd_toStartOf="@id/guideline_center_h"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/conditions">
+
+        <FrameLayout
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="top|end"
+            android:background="@drawable/shape_rounded_50"
+            android:backgroundTint="@color/green"
+            android:padding="1dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/person" />
+        </FrameLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/responses_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:textAppearance="?attr/text_1"
+            android:textColor="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/experience"
+            tools:text="147 человек уже откликнулись" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/f1"
+        android:layout_width="0dp"
+        android:layout_marginTop="?attr/viewPadding"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="?attr/viewPaddingQuarter"
+        android:layout_weight="1"
+        android:background="@drawable/shape_rounded_8"
+        android:backgroundTint="@color/dark_green"
+        android:minHeight="50dp"
+        android:padding="?attr/viewPaddingHalf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guideline_center_h"
+        app:layout_constraintTop_toBottomOf="@id/conditions">
+
+        <FrameLayout
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="top|end"
+            android:background="@drawable/shape_rounded_50"
+            android:backgroundTint="@color/green"
+            android:padding="1dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/eye" />
+        </FrameLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/views_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:textAppearance="?attr/text_1"
+            android:textColor="?android:textColorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/experience"
+            tools:text="2 человека сейчас смотрят" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_marginTop="?attr/viewPadding"
+        android:layout_marginBottom="?attr/viewPadding"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/response"
+        app:layout_constraintTop_toBottomOf="@id/f1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_rounded_8"
+            app:layout_constraintTop_toBottomOf="@id/f1">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_rounded_8"
+                android:backgroundTint="?attr/colorSurface"
+                android:padding="?attr/viewPadding"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/employer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:textAppearance="?attr/title_3"
+                    android:textColor="?android:textColorPrimary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Мобирикс" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="?attr/viewPaddingQuarter"
+                    android:src="@drawable/check_circle"
+                    app:layout_constraintBottom_toBottomOf="@id/employer"
+                    app:layout_constraintStart_toEndOf="@id/employer"
+                    app:layout_constraintTop_toTopOf="@id/employer" />
+
+                <TextView
+                    android:id="@+id/map"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:background="@color/red"
+                    android:text="TODO: map"
+                    android:textColor="@color/white"
+                    app:layout_constraintTop_toBottomOf="@id/employer" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/text_1"
+                    android:textColor="?android:textColorPrimary"
+                    app:layout_constraintTop_toBottomOf="@id/map"
+                    tools:text="Минск, улица Бирюзова, 4/5" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/text_1"
+                android:layout_marginTop="?attr/viewPadding"
+                android:textColor="?android:textColorPrimary"
+                app:layout_constraintTop_toBottomOf="@id/banner"
+                tools:text="MOBYRIX - динамично развивающаяся продуктовая IT-компания, специализирующаяся на разработке мобильных приложений для iOS и Android. Наша команда работает над собственными продуктами в разнообразных сферах: от утилит до развлечений и бизнес-приложений. Мы ценим талант и стремление к инновациям и в данный момент в поиске талантливого UX/UI Designer, готового присоединиться к нашей команде и внести значимый вклад в развитие наших проектов." />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/t3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="?attr/viewPaddingHalf"
+                android:text="@string/your_tasks"
+                android:textAppearance="?attr/title_2"
+                android:textColor="?android:textColorPrimary"
+                app:layout_constraintTop_toBottomOf="@id/description" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/responsibilities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/text_1"
+                android:layout_marginTop="?attr/viewPaddingHalf"
+                android:textColor="?android:textColorPrimary"
+                app:layout_constraintTop_toBottomOf="@id/t3"
+                tools:text="-Проектировать пользовательский опыт, проводить UX исследования; -Разрабатывать адаптивный дизайн интерфейса для мобильных приложений; -Разрабатывать быстрые прототипы для тестирования идеи дизайна и их последующая; интеграция на основе обратной связи от команды и пользователей; -Взаимодействовать с командой разработчиков для обеспечения точной реализации ваших дизайнов; -Анализ пользовательского опыта и адаптация под тренды." />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/t4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ask"
+                android:layout_marginTop="?attr/viewPadding"
+                android:textAppearance="?attr/text_1"
+                android:textColor="?android:textColorPrimary"
+                app:layout_constraintTop_toBottomOf="@id/responsibilities" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/t5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="?attr/viewPaddingHalf"
+                android:text="@string/ask_desc_1"
+                android:textAppearance="?attr/text_1"
+                android:textColor="?android:textColorSecondary"
+                app:layout_constraintTop_toBottomOf="@id/t4" />
+
+            <LinearLayout
+                android:id="@+id/ask"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/view_padding"
+                app:layout_constraintTop_toBottomOf="@id/t5">
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <!-- TODO: wrong button color -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/response"
+        style="?attr/button_1"
+        android:layout_width="match_parent"
+        android:text="@string/response"
+        app:backgroundTint="?attr/colorSecondary"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
