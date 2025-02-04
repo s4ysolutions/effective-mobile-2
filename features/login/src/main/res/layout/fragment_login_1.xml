@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="?attr/viewPadding"
+    tools:background="?attr/android:windowBackground"
+    tools:context=".screens.Fragment1"
+    tools:theme="@style/Theme.Effectivem2">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_padding_one_and_half"
+        android:text="Вход в личный кабинет"
+        android:textAppearance="?attr/title_2"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/t2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="?attr/viewPadding"
+            android:background="@drawable/shape_rounded_8"
+            android:backgroundTint="?attr/colorSurface"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/vcenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintGuide_percent="0.5"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/t3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Поиск работы"
+                android:textAppearance="?attr/title_3"
+                android:textColor="?android:textColorPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/t3"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="40dp"
+                    android:padding="0dp"
+                    tools:text="1234341234324132"
+                    android:layout_marginTop="?attr/viewPadding"
+                    android:hint=""
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cont"
+                style="?attr/button_1"
+                android:layout_width="wrap_content"
+                android:text="Продолжить"
+                android:layout_marginTop="@dimen/view_padding"
+                app:layout_constraintTop_toBottomOf="@id/password_layout"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck,VisualLintButtonSize"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cont_password"
+                style="?attr/button_3"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Войти с паролем"
+                android:paddingHorizontal="0dp"
+                app:layout_constraintTop_toTopOf="@id/cont"
+                app:layout_constraintBottom_toBottomOf="@id/cont"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck,VisualLintButtonSize"
+                tools:layout_editor_absoluteX="16dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottom"
+            android:background="@drawable/shape_rounded_8"
+            android:backgroundTint="?attr/colorSurface"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="?attr/viewPadding"
+            android:layout_marginTop="?attr/viewPadding"
+            app:layout_constraintTop_toBottomOf="@+id/top">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/t4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Поиск сотрудников"
+                android:textAppearance="?attr/title_3"
+                android:textColor="?android:textColorPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/t5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="?attr/viewPadding"
+                android:text="Размещение вакансий и доступ к базе резюме"
+                android:textAppearance="?attr/text_1"
+                android:textColor="?android:textColorPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/t4" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/search_employee"
+                style="?attr/button_2"
+                android:layout_width="match_parent"
+                android:layout_marginTop="?attr/viewPadding"
+                android:text="Я ищу сотрудников"
+                app:layout_constraintTop_toBottomOf="@id/t5"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck,VisualLintButtonSize"
+                tools:layout_editor_absoluteX="16dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

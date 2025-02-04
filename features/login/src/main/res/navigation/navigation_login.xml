@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_login"
+    app:startDestination="@+id/navigation_login_1">
+
+    <fragment
+        android:id="@+id/navigation_login_1"
+        android:name="com.example.effectivem2.login.screens.Fragment1"
+        tools:layout="@layout/fragment_login_1">
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_login_2"
+        android:name="com.example.effectivem2.login.screens.Fragment2"
+        tools:layout="@layout/fragment_login_2">
+    </fragment>
+</navigation>

@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.effectivem2.vacancies"
+    namespace = "com.example.effectivem2.login"
     compileSdk = 35
 
     defaultConfig {
@@ -40,7 +40,7 @@ android {
 dependencies {
     kapt(libs.hilt.compiler)
     implementation(project(":shared"))
-    implementation(project(":domain"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
