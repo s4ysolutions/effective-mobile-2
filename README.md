@@ -29,7 +29,7 @@ The same as in the [previous demo](https://github.com/s4ysolutions/effective-mob
 #### Theming 
   - the UI is completely styled with the custom (styles](https://github.com/s4ysolutions/effective-mobile-2/blob/main/shared/src/main/res/values/styles.xml) that are assigned to 
     [Material UI theme](https://github.com/s4ysolutions/effective-mobile-2/blob/main/shared/src/main/res/values/themes.xml) and [custom attributes](https://github.com/s4ysolutions/effective-mobile-2/blob/main/shared/src/main/res/values/attrs.xml)
-
+  - color selectors. Color selectors are used to change the presentation of enabled/disable state leveraging [theme attributes](https://github.com/s4ysolutions/effective-mobile-2/blob/main/shared/src/main/res/color/button_primary_state.xml).
 
 #### Platform independent kotlin library
   - Domain level implemented as [pure kotlin module](https://github.com/s4ysolutions/effective-mobile-2/blob/6ad90cdd51ded69fd18da9ad00b478e18b47fa0b/domain/build.gradle.kts#L1C1-L5C2) and does not depend on Android platform. This way it can be shared with iOS/Web targets.
@@ -62,6 +62,5 @@ The same as in the [previous demo](https://github.com/s4ysolutions/effective-mob
      as an alternative to Yandex search API (i do not have API key)
   - [passing click form webview to android host](https://github.com/s4ysolutions/effective-mobile-2/blob/6ad90cdd51ded69fd18da9ad00b478e18b47fa0b/features/vacancies/src/main/java/com/example/effectivem2/vacancies/screens/vacancy/VacancyFragment.kt#L107C1-L107C77)
 
-calling external app
-
-color selectors
+#### calling external app
+  - call for an [applicaiton able to show maps](https://github.com/s4ysolutions/effective-mobile-2/blob/791e32069408d9e6e3b5698c498440dee02c85a6/features/vacancies/src/main/java/com/example/effectivem2/vacancies/screens/vacancy/VacancyFragment.kt#L174C1-L177C1)
