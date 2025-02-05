@@ -10,20 +10,23 @@
         android:name="com.example.effectivem2.vacancies.screens.search.SearchFragment"
         tools:layout="@layout/fragment_vacancies_search">
         <deepLink app:uri="effectivem2://vacancies/search" />
+
+        <action
+            android:id="@+id/action_search_to_search_more"
+            app:destination="@id/navigation_vacancies_search_more" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_vacancies_search_more"
         android:name="com.example.effectivem2.vacancies.screens.search.SearchMoreFragment"
-        tools:layout="@layout/fragment_vacancies_search_more">
-    </fragment>
+        tools:layout="@layout/fragment_vacancies_search_more"></fragment>
 
     <fragment
         android:id="@+id/navigation_vacancy"
         android:name="com.example.effectivem2.vacancies.screens.vacancy.VacancyFragment"
         tools:layout="@layout/fragment_vacancy">
         <argument
-            android:name="vacancyId"
+            android:name="vacancy"
             app:argType="com.example.effectivem2.domain.models.Vacancy" />
     </fragment>
 
@@ -34,11 +37,21 @@
         <deepLink app:uri="effectivem2://vacancies/favorites" />
     </fragment>
 
-    <action
-        android:id="@+id/action_search_to_search_more"
-        app:destination="@id/navigation_vacancies_search_more" />
+    <dialog
+        android:id="@+id/navigation_vacancy_apply"
+        android:name="com.example.effectivem2.vacancies.dialogs.VacancyApplyDialogFragment"
+        android:label="Откликнуться"
+        tools:layout="@layout/dialog_vacancy_apply">
+        <argument
+            android:name="vacancy"
+            app:argType="com.example.effectivem2.domain.models.Vacancy" />
+    </dialog>
 
     <action
         android:id="@+id/action_to_vacancy"
         app:destination="@id/navigation_vacancy" />
+
+    <action
+        android:id="@+id/action_to_vacancy_apply"
+        app:destination="@id/navigation_vacancy_apply" />
 </navigation>

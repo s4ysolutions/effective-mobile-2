@@ -9,17 +9,17 @@ import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 class RetrofitJobsProvider(context: Context) : JobsProvider {
-    private val retrofitClient = RetrofitClient.getInstance(context)
+    private val jobsRetrofitClient = JobsRetrofitClient.getInstance(context)
 
     override fun queryOffers(): Single<Array<Offer>> =
-        retrofitClient.getOffers().subscribeOn(Schedulers.io()).map { jsonOffers ->
+        jobsRetrofitClient.getOffers().subscribeOn(Schedulers.io()).map { jsonOffers ->
             Array(jsonOffers.size) { index ->
                 jsonOffers[index].dto
             }
         }.delay(DELAY, java.util.concurrent.TimeUnit.MILLISECONDS)
 
     override fun queryVacancies(): Single<Array<Vacancy>> =
-        retrofitClient.getVacancies().subscribeOn(Schedulers.io())
+        jobsRetrofitClient.getVacancies().subscribeOn(Schedulers.io())
             .map { jsonVacancies ->
                 Array(jsonVacancies.size) { index ->
                     jsonVacancies[index].dto

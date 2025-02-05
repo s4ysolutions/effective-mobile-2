@@ -82,8 +82,8 @@
         android:id="@+id/income"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?attr/text_1"
         android:layout_marginTop="?attr/viewPadding"
+        android:textAppearance="?attr/text_1"
         android:textColor="?android:textColorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title"
@@ -119,8 +119,8 @@
 
     <FrameLayout
         android:layout_width="0dp"
-        android:layout_marginTop="?attr/viewPadding"
         android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/viewPadding"
         android:layout_marginEnd="?attr/viewPaddingQuarter"
         android:layout_weight="1"
         android:background="@drawable/shape_rounded_8"
@@ -160,9 +160,9 @@
     <FrameLayout
         android:id="@+id/f1"
         android:layout_width="0dp"
-        android:layout_marginTop="?attr/viewPadding"
         android:layout_height="wrap_content"
         android:layout_marginStart="?attr/viewPaddingQuarter"
+        android:layout_marginTop="?attr/viewPadding"
         android:layout_weight="1"
         android:background="@drawable/shape_rounded_8"
         android:backgroundTint="@color/dark_green"
@@ -199,10 +199,10 @@
     </FrameLayout>
 
     <ScrollView
-        android:layout_marginTop="?attr/viewPadding"
-        android:layout_marginBottom="?attr/viewPadding"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="?attr/viewPadding"
+        android:layout_marginBottom="?attr/viewPadding"
         app:layout_constraintBottom_toTopOf="@id/response"
         app:layout_constraintTop_toBottomOf="@id/f1">
 
@@ -241,14 +241,26 @@
                     app:layout_constraintStart_toEndOf="@id/employer"
                     app:layout_constraintTop_toTopOf="@id/employer" />
 
-                <TextView
-                    android:id="@+id/map"
+
+                <FrameLayout
+                    android:id="@+id/map_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="58dp"
-                    android:background="@color/red"
-                    android:text="TODO: map"
-                    android:textColor="@color/white"
-                    app:layout_constraintTop_toBottomOf="@id/employer" />
+                    android:layout_height="128dp"
+                    android:layout_marginTop="?attr/viewPaddingHalf"
+                    app:layout_constraintTop_toBottomOf="@id/employer">
+
+                    <com.google.android.material.textview.MaterialTextView android:id="@+id/map"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:gravity="center"
+                        tools:text="123"
+                        />
+                    <WebView
+                        android:id="@+id/mapWV"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </FrameLayout>
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/address"
@@ -256,7 +268,8 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?attr/text_1"
                     android:textColor="?android:textColorPrimary"
-                    app:layout_constraintTop_toBottomOf="@id/map"
+                    android:layout_marginTop="?attr/viewPaddingHalf"
+                    app:layout_constraintTop_toBottomOf="@id/map_layout"
                     tools:text="Минск, улица Бирюзова, 4/5" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -264,8 +277,8 @@
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?attr/text_1"
                 android:layout_marginTop="?attr/viewPadding"
+                android:textAppearance="?attr/text_1"
                 android:textColor="?android:textColorPrimary"
                 app:layout_constraintTop_toBottomOf="@id/banner"
                 tools:text="MOBYRIX - динамично развивающаяся продуктовая IT-компания, специализирующаяся на разработке мобильных приложений для iOS и Android. Наша команда работает над собственными продуктами в разнообразных сферах: от утилит до развлечений и бизнес-приложений. Мы ценим талант и стремление к инновациям и в данный момент в поиске талантливого UX/UI Designer, готового присоединиться к нашей команде и внести значимый вклад в развитие наших проектов." />
@@ -284,8 +297,8 @@
                 android:id="@+id/responsibilities"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?attr/text_1"
                 android:layout_marginTop="?attr/viewPaddingHalf"
+                android:textAppearance="?attr/text_1"
                 android:textColor="?android:textColorPrimary"
                 app:layout_constraintTop_toBottomOf="@id/t3"
                 tools:text="-Проектировать пользовательский опыт, проводить UX исследования; -Разрабатывать адаптивный дизайн интерфейса для мобильных приложений; -Разрабатывать быстрые прототипы для тестирования идеи дизайна и их последующая; интеграция на основе обратной связи от команды и пользователей; -Взаимодействовать с командой разработчиков для обеспечения точной реализации ваших дизайнов; -Анализ пользовательского опыта и адаптация под тренды." />
@@ -294,8 +307,8 @@
                 android:id="@+id/t4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/ask"
                 android:layout_marginTop="?attr/viewPadding"
+                android:text="@string/ask"
                 android:textAppearance="?attr/text_1"
                 android:textColor="?android:textColorPrimary"
                 app:layout_constraintTop_toBottomOf="@id/responsibilities" />
@@ -316,8 +329,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingTop="@dimen/view_padding"
-                app:layout_constraintTop_toBottomOf="@id/t5">
-            </LinearLayout>
+                app:layout_constraintTop_toBottomOf="@id/t5"></LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

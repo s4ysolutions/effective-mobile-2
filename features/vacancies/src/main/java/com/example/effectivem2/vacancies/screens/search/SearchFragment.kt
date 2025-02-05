@@ -56,10 +56,16 @@ class SearchFragment : Fragment() {
                     viewModel.addVacancyToFavorites(vacancy)
             },
             onRespondClick = { vacancy: Vacancy ->
+                val action = R.id.navigation_vacancy_apply
+                val args = bundleOf("vacancy" to vacancy)
+                findNavController().navigate(action, args)
+            },
+            onVacancyClick = { vacancy: Vacancy ->
                 val action = R.id.navigation_vacancy
                 val args = bundleOf("vacancy" to vacancy)
                 findNavController().navigate(action, args)
-            })
+            },
+            )
         binding.vacancies.layoutManager =
             LinearLayoutManager(requireContext())
         binding.vacancies.adapter = vacanciesAdapter

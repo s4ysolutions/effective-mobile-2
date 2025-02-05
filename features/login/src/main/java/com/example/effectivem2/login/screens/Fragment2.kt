@@ -1,5 +1,7 @@
 package com.example.effectivem2.login.screens
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,6 +24,13 @@ class Fragment2 : Fragment() {
     ): View {
         _binding = FragmentLogin2Binding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        binding.cont.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("effectivem2://vacancies/search")
+            startActivity(intent)
+            activity?.finish()
+        }
 
         return root
     }

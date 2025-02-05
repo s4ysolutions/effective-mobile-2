@@ -1,22 +1,32 @@
 package com.example.effectivem2.vacancies.screens.vacancy
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.content.res.Resources
+import android.net.Uri
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.webkit.JavascriptInterface
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.effectivem2.domain.models.Vacancy
 import com.example.effectivem2.vacancies.R
 import com.example.effectivem2.vacancies.databinding.FragmentVacancyBinding
 import com.google.android.material.button.MaterialButton
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 private val Int.dp: Int
     get() = (this * Resources.getSystem().displayMetrics.density).toInt()
@@ -42,6 +52,14 @@ class VacancyFragment : Fragment() {
             findNavController().popBackStack()
         }
 
+        /* WebView
+        binding.map.apply {
+            javaScriptEnabled = true
+            domStorageEnabled = true
+            useWideViewPort = true
+        }
+         */
+
         currentVacancy = arguments?.getSerializable("vacancy") as? Vacancy
 
         viewModel.vacanciesLiveData.observe(viewLifecycleOwner) { vacancies ->
@@ -56,6 +74,7 @@ class VacancyFragment : Fragment() {
         return root
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     private fun updateVacancy(vacancy: Vacancy) {
         binding.title.text = vacancy.title
         val income = vacancy.salary.full ?: vacancy.salary.short ?: ""
@@ -80,6 +99,30 @@ class VacancyFragment : Fragment() {
         binding.favorite.setImageResource(if (vacancy.isFavorite) com.example.effectivem2.views.R.drawable.favorites_fill else com.example.effectivem2.views.R.drawable.favorites)
         binding.favorite.setOnClickListener {
             viewModel.toggleVacancyFavorite(vacancy)
+        }
+        binding.mapWV.apply {
+            visibility = GONE
+            settings.javaScriptEnabled = true
+            activity?.let { activity ->
+                addJavascriptInterface(WebAppInterface(activity), "Android")
+            }
+        }
+        binding.map.apply {
+            visibility = VISIBLE
+            text = "поиск на карте ..."
+            // this scope allows to update UI
+            lifecycleScope.launch {
+                try {
+                    val coordinates = viewModel.fetchCoordinates(vacancy)
+                    text = "Найдены координаты: " + coordinates.first + ", " + coordinates.second
+                    binding.mapWV.loadData(leafletScript(coordinates), "text/html", "UTF-8")
+                    binding.map.visibility = GONE
+                    binding.mapWV.visibility = VISIBLE
+                } catch (e: Exception) {
+                    text = e.message
+                }
+            }
+            //    loadUrl("https://yandex.com/maps/157/minsk/geo/31325921/?ll=27.511620%2C53.912619&z=17")
         }
         val typedValue = TypedValue()
         context?.let { context ->
@@ -124,4 +167,45 @@ class VacancyFragment : Fragment() {
 
     }
 
+    inner class WebAppInterface(private val context: Context) {
+        @JavascriptInterface
+        fun onMapClick(lon: Double, lat: Double) {
+            val latitude = 52.5200  // Replace with your latitude
+            val longitude = 13.4050  // Replace with your longitude
+
+            val uri = Uri.parse("geo:$latitude,$longitude?q=$latitude,$longitude")
+
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+
+            if (intent.resolveActivity(context.packageManager) != null) {
+                startActivity(intent)
+            } else {
+                Toast.makeText(context, "No maps app found", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    companion object {
+        fun leafletScript(coordinates: Pair<Double, Double>): String = """<!DOCTYPE html>
+        <html>
+        <head>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        </head>
+        <body>
+        <div id="map" style="height: 100vh;"></div>
+        <script>
+        var map = L.map('map').setView([${coordinates.second}, ${coordinates.first}], 10);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+            map.on('click', function(e) {
+                var lat = e.latlng.lat;
+                var lon = e.latlng.lng;
+
+                // Call the Android function to pass the coordinates
+                Android.onMapClick( ${coordinates.first}, ${coordinates.second});
+            });
+        </script>
+        </body>
+        </html>"""
+    }
 }

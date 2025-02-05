@@ -18,6 +18,7 @@ dependencies {
     implementation(project(":data"))
     implementation(libs.rxjava)
     implementation(libs.kotlinx.coroutines.core)
+    // implementation(libs.kotlinx.coroutines.jdk8)
     implementation(libs.kotlinx.coroutines.rx3)
     implementation(libs.dagger)
     //implementation(libs.hilt)

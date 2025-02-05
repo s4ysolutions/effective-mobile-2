@@ -17,7 +17,8 @@ import java.util.Locale
 class VacanciesAdapter(
     vacancies: Array<Vacancy>,
     private val onFavoritesClick: (Vacancy) -> Unit,
-    private val onRespondClick: (Vacancy) -> Unit
+    private val onRespondClick: (Vacancy) -> Unit,
+    private val onVacancyClick: (Vacancy) -> Unit,
 ) : RecyclerView.Adapter<VacanciesAdapter.VacancyViewHolder>() {
 
     private val vacancies = mutableListOf(*vacancies)
@@ -44,6 +45,7 @@ class VacanciesAdapter(
         vacancies.size
 
     inner class VacancyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val root = itemView
         private val context = itemView.context
         private val favoriteImageView: ImageView = itemView.findViewById(R.id.favorite)
         private val currentlyViewingTextView: MaterialTextView =
@@ -99,11 +101,13 @@ class VacanciesAdapter(
                 onFavoritesClick(vacancy)
             }
 
+            root.setOnClickListener {
+                onVacancyClick(vacancy)
+            }
+
             respondButton.setOnClickListener {
                 onRespondClick(vacancy)
             }
-
-
         }
     }
 

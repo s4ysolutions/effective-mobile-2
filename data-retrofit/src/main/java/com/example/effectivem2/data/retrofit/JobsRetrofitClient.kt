@@ -12,7 +12,7 @@ import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
-interface RetrofitClient {
+interface JobsRetrofitClient {
     @GET("/offers.json")
     fun getOffers(): Single<MutableList<JsonOffer>>
 
@@ -21,9 +21,9 @@ interface RetrofitClient {
 
     companion object {
         private const val ASSET_URL_PREFIX = "http://android_asset/"
-        private val TAG = RetrofitClient::class.java.simpleName
+        private val TAG = JobsRetrofitClient::class.java.simpleName
 
-        fun getInstance(context: Context): RetrofitClient {
+        fun getInstance(context: Context): JobsRetrofitClient {
             return (OkHttpClient.Builder()
                 .addInterceptor(
                     object : Interceptor {
@@ -67,7 +67,7 @@ interface RetrofitClient {
                         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                         .client(httpClientBuilder.build())
                         .build()
-                }.create(RetrofitClient::class.java)
+                }.create(JobsRetrofitClient::class.java)
         }
     }
 }

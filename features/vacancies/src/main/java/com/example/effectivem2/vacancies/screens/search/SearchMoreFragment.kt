@@ -47,6 +47,11 @@ class SearchMoreFragment : Fragment() {
                     viewModel.addVacancyToFavorites(vacancy)
             },
             onRespondClick = { vacancy: Vacancy ->
+                val action = R.id.navigation_vacancy_apply
+                val args = bundleOf("vacancy" to vacancy)
+                findNavController().navigate(action, args)
+            },
+            onVacancyClick = { vacancy: Vacancy ->
                 val action = R.id.navigation_vacancy
                 val args = bundleOf("vacancy" to vacancy)
                 findNavController().navigate(action, args)
@@ -58,7 +63,7 @@ class SearchMoreFragment : Fragment() {
 
         viewModel.vacanciesLiveData.observe(viewLifecycleOwner) {
             vacanciesAdapter.setVacancies(it)
-            binding.qty.text = if (it.size>0)
+            binding.qty.text = if (it.size > 0)
                 resources.getQuantityString(R.plurals.vacancies_qty, it.size, it.size)
             else
                 "Нет вакансий"

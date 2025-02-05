@@ -11,6 +11,8 @@ hiltVersion = "2.55"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 kotlin = "1.9.24"
+kotlinxCoroutinesJdk8 = "1.7.3"
+osmdroidAndroid = "6.1.20"
 retrofit = "2.9.0"
 material = "1.12.0"
 
@@ -20,6 +22,7 @@ navigationFragmentKtx = "2.8.6"
 navigationUiKtx = "2.8.6"
 jetbrainsKotlinJvm = "1.9.24"
 kotlinCoroutines = "1.9.0"
+kotlinxCoroutines = "1.10.1"
 roomCommon = "2.6.1"
 roomKtx = "2.6.1"
 
@@ -42,12 +45,15 @@ androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifec
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
 
+osmdroid-android = { module = "org.osmdroid:osmdroid-android", version.ref = "osmdroidAndroid" }
+osmdroid-mapsforge = { module = "org.osmdroid:osmdroid-mapsforge", version.ref = "osmdroidAndroid" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-adapter-rxjava3 = { module = "com.squareup.retrofit2:adapter-rxjava3", version.ref = "retrofit" }
 retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 rxjava = { group = "io.reactivex.rxjava3", name = "rxjava", version = "3.1.10" }
 kotlinx-coroutines-rx3 = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-rx3", version.ref = "kotlinCoroutines" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinCoroutines" }
+kotlinx-coroutines-jdk8 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8", version.ref = "kotlinxCoroutines" }
 
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltVersion" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltVersion" }

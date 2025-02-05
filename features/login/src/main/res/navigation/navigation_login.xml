@@ -9,6 +9,9 @@
         android:id="@+id/navigation_login_1"
         android:name="com.example.effectivem2.login.screens.Fragment1"
         tools:layout="@layout/fragment_login_1">
+        <action
+            android:id="@+id/action_to_login_2"
+            app:destination="@+id/navigation_login_2"/>
     </fragment>
 
     <fragment
