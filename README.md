@@ -27,7 +27,7 @@ The same as in the [previous demo](https://github.com/s4ysolutions/effective-mob
   - android:fitsSystemWindows="true" to obey safe area
 
 #### Theming 
-  - the UI is completely styled with the custom (styles](https://github.com/s4ysolutions/effective-mobile-2/blob/main/shared/src/main/res/values/styles.xml) that are assigned to 
+  - the UI is completely styled with the custom [[styles](https://github.com/s4ysolutions/effective-mobile-2/blob/main/shared/src/main/res/values/styles.xml) that are assigned to 
     [Material UI theme](https://github.com/s4ysolutions/effective-mobile-2/blob/main/shared/src/main/res/values/themes.xml) and [custom attributes](https://github.com/s4ysolutions/effective-mobile-2/blob/main/shared/src/main/res/values/attrs.xml)
   - color selectors. Color selectors are used to change the presentation of enabled/disable state leveraging [theme attributes](https://github.com/s4ysolutions/effective-mobile-2/blob/main/shared/src/main/res/color/button_primary_state.xml).
 
