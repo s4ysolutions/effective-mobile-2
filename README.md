@@ -39,3 +39,11 @@ futures from callback
 nominatim
 
 convert future to coroutine
+
+webview
+
+passing webview js clicks
+
+calling external app
+
+color selectors

@@ -169,9 +169,7 @@ class VacancyFragment : Fragment() {
 
     inner class WebAppInterface(private val context: Context) {
         @JavascriptInterface
-        fun onMapClick(lon: Double, lat: Double) {
-            val latitude = 52.5200  // Replace with your latitude
-            val longitude = 13.4050  // Replace with your longitude
+        fun onMapClick(longitude: Double, latitude: Double) {
 
             val uri = Uri.parse("geo:$latitude,$longitude?q=$latitude,$longitude")
 
