@@ -21,6 +21,7 @@
         <item name="android:textColorSecondary">@color/grey_3</item>
         <!-- override MUI colors -->
         <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryDark">@color/dark_blue</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/green</item>
         <item name="colorOnSecondary">@color/white</item>

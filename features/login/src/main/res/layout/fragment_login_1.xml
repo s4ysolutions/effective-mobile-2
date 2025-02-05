@@ -78,6 +78,7 @@
                 style="?attr/button_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:text="Продолжить"
                 android:layout_marginTop="?attr/viewPadding"
                 app:layout_constraintTop_toBottomOf="@id/password_layout"

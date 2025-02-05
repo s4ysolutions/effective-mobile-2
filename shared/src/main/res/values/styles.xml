@@ -113,8 +113,8 @@
         <item name="android:textAppearance">?attr/button_text_1</item>
         <!--item name="shapeAppearance">@style/Theme.Effectivem.Shape.Corner.Half</item-->
         <item name="android:background">@drawable/shape_rounded_8</item>
-        <item name="backgroundTint">?attr/colorPrimary</item>
-        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="backgroundTint">@color/button_primary_state</item>
+        <item name="android:textColor">@color/button_label_primary_state</item>
         <item name="iconTint">?attr/colorOnPrimary</item>
         <item name="strokeWidth">0dp</item>
         <item name="android:insetTop">0dp</item>

@@ -1,11 +1,10 @@
 package com.example.effectivem2.login.screens
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.effectivem2.login.R
@@ -26,6 +25,10 @@ class Fragment1 : Fragment() {
     ): View {
         _binding = FragmentLogin1Binding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        binding.password.addTextChangedListener { text ->
+            binding.cont.isEnabled = !text.isNullOrEmpty()
+        }
 
         binding.cont.setOnClickListener {
             val navController = findNavController()
